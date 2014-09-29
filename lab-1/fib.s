@@ -25,8 +25,7 @@ fibonacci:
 
 	@ R0 = R4 - 1
 	@ Recursive call to fibonacci with R4 - 1 as parameter
-	@sub r0,r4,#1
-	add r0,r4,#4294967295
+	sub r0,r4,#1
 
 	@ R5 = R0
 	@ R0 = R4 - 2
@@ -36,7 +35,7 @@ fibonacci:
 	bl fibonacci
 
 	@ R0 = R5 + R0 (update flags)
-	add r0,r5,r0
+	adds r0,r5,r0
 
 	pop {r3, r4, r5, pc}		@EPILOG
 
